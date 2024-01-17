@@ -1,0 +1,102 @@
+@import 'base/reset';
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../media/magical_landscape.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.upload-files {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 855px;
+    height: 515px;
+    border-radius: 7px;
+    transition: background-color 0.3s;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        border-radius: 7px;
+        background-color: rgba(0, 0, 0, 0.47);
+    }
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.21);
+    }
+
+    &-result {
+        &__button {
+            visibility: hidden;
+            display: inline-block;
+            position: absolute;
+            right: 1%;
+            top: 3%;
+            opacity: 0;
+            padding: 7px 9px;
+            border-radius: 3px;
+            z-index: 9;
+            transition: background-color 0.3s, opacity 0.3s;
+            color: rgb(255, 255, 255);
+            background-color: rgb(57, 197, 197);
+            &:hover{
+                background-color:rgb(47, 161, 161);
+            }
+            &.active {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__input {
+        cursor: pointer;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 7;
+    }
+
+    &__info {
+        display: inline-block;
+        margin: 12px 0;
+        font-size: 1em;
+        z-index: 5;
+        color: rgb(253, 253, 253);
+    }
+
+    &__element {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        border-radius: 7px;
+    }
+
+    .fa-cloud-arrow-up {
+        font-size: 7.9em;
+        z-index: 5;
+        color: rgb(253, 253, 253);
+    }
+}
+
+input[type="file"i]::-webkit-file-upload-button {
+    display: none !important;
+}
